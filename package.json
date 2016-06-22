@@ -1,0 +1,36 @@
+{
+  "name": "clear-require-cache",
+  "version": "0.1.0",
+  "description": "Watch files and delete them from `require.cache` when changed.",
+  "main": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "clearcache": "./bin/index.js"
+  },
+  "keywords": [
+    "clear",
+    "cache",
+    "decache",
+    "del",
+    "delcache",
+    "delete",
+    "derequire",
+    "module",
+    "refesh",
+    "require",
+    "remove",
+    "uncache",
+    "uncached",
+    "unrequire"
+  ],
+  "author": "Ryan Fitzer",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^1.5.2",
+    "commander": "^2.9.0",
+    "debug": "^2.2.0",
+    "npmlog": "^3.1.2"
+  }
+}
