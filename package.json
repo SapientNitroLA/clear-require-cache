@@ -5,7 +5,9 @@
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preversion": "printenv | grep npm_ | sort"
+    "preversion": "echo Replace $npm_config_tag_version_prefix$npm_package_version with {version}",
+    "version": "echo rewrite files with new version: $npm_config_tag_version_prefix$npm_package_version",
+    "postversion": "echo push && push --tags"
   },
   "bin": {
     "clearcache": "./bin/index.js"
