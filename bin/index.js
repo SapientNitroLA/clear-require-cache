@@ -47,13 +47,30 @@ const packageJSON = require( '../package.json' );
 //                             written.                    [boolean] [default: false]
 
 program.usage( 'clearcache <path> [<path>...] [options]' );
+
 program.version( packageJSON.version );
-program.option( '--silent' );
-program.option( '-p, --polling' );
-program.option( '-s, --follow-symlinks' );
-program.option( '-i, --ignore [pattern]', 'Pattern for files which should be ignored. Supports glob patters or regexes using format: /yourmatch/i' );
-program.option( '--poll-interval [number]' );
+
+program.option( '--silent', `When set, internal messages of chokidar-cli won't be written.` );
+
+program.option( '-p, --polling', `Whether to use fs.watchFile(backed by polling) instead
+                                 of fs.watch. This might lead to high CPU utilization.
+                                 It is typically necessary to set this to true to
+                                 successfully watch files over a network, and it may be
+                                 necessary to successfully watch files in other non-
+                                 standard situations.` );
+
+program.option( '-s, --follow-symlinks', `When not set, only the symlinks themselves will be
+                                 watched for changes instead of following the link
+                                 references and bubbling events through the links path` );
+
+program.option( '-i, --ignore [pattern]', `Pattern for files which should be ignored.
+                                 Supports glob patters or regexes using format: /yourmatch/i` );
+
+program.option( '--poll-interval [number]', `Interval of file system polling. Effective when
+                                 --polling is set.` );
+
 program.option( '--poll-interval-binary [number]' );
+
 program.parse( process.argv );
 
 clearCache( program.args, {} );
