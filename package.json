@@ -5,8 +5,8 @@
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bump": "sed -i \"s|$npm_config_tag_version_prefix$npm_package_version|{version}|g\" README.md && npm version",
-    "version": "sed -i \"s|{version}|$npm_config_tag_version_prefix$npm_package_version|g\" README.md && git add README.md",
+    "bump": "sed -e \"s|$npm_config_tag_version_prefix$npm_package_version|{version}|g\" -i '' README.md && npm version",
+    "version": "sed -e \"s|{version}|$npm_config_tag_version_prefix$npm_package_version|g\" -i '' README.md && git add README.md",
     "postversion": "echo 'push && push --tags'"
   },
   "bin": {
