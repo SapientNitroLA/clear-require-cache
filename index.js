@@ -21,8 +21,6 @@ module.exports = function ( srcPath, options ) {
 
     watcher.on( 'change', function( file ) {
 
-        log.info( 'changed', file );
-
         if ( require.cache[ file ] ) {
 
             delete require.cache[ file ];

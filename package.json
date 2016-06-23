@@ -21,6 +21,7 @@
     "delete",
     "derequire",
     "module",
+    "purge",
     "refesh",
     "require",
     "remove",
