@@ -1,6 +1,6 @@
 # Clear Require Cache #
 
-Version: 0.1.9
+Version: 0.1.1
 
 And small wrapper around <https://github.com/paulmillr/chokidar> for clearing files from `require.cache` whenever they change.
 
