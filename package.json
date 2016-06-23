@@ -4,7 +4,9 @@
   "description": "Watch files and delete them from `require.cache` when changed.",
   "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preversion": "export _npm_pkg_v_last=$npm_config_tag_version_prefix$npm_package_version",
+    "postversion": "echo last: $_npm_pkg_v_last latest: $npm_config_tag_version_prefix$npm_package_version"
   },
   "bin": {
     "clearcache": "./bin/index.js"
