@@ -5,7 +5,7 @@ const log = require( './lib/logger' );
 const chokidar = require( 'chokidar' );
 
 /**
- * @param srcPath {String|Array} The path or paths to glob.
+ * @param srcPath {String|Array} The glob path(s).
  * @param options {Object} https://github.com/paulmillr/chokidar/blob/master/README.md#api
  */
 module.exports = function ( srcPath, options ) {
@@ -22,8 +22,6 @@ module.exports = function ( srcPath, options ) {
     watcher.on( 'change', function( file ) {
 
         log.info( 'changed', file );
-
-        console.log( Object.keys( require.cache ).filter( name => !/node_modules/.test( name ) ) );
 
         if ( require.cache[ file ] ) {
 
