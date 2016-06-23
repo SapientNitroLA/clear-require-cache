@@ -1,6 +1,6 @@
 # Clear Require Cache #
 
-Version: v0.1.8
+Version: {version}
 
 And small wrapper around <https://github.com/paulmillr/chokidar> for clearing files from `require.cache` whenever they change.
 
@@ -41,7 +41,7 @@ Path to file(s) to watch.
 
 ### `options` ###
 
-All [`chokidar`](https://github.com/paulmillr/chokidar/blob/master/README.md#api) options should be supported (TODO: test) Version: v0.1.8.
+All [`chokidar`](https://github.com/paulmillr/chokidar/blob/master/README.md#api) options should be supported (TODO: test) Version: {version}.
 
   - type: `Object`
   - required: no
