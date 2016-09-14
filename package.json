@@ -1,7 +1,7 @@
 {
   "name": "clear-require-cache",
-  "version": "0.1.4",
-  "description": "Watch files and delete them from `require.cache` when changed.",
+  "version": "0.1.5",
+  "description": "Watch files and clear them from `require.cache` whenever changes are made.",
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,17 @@
     "postversion": "git push && git push --tags"
   },
   "bin": {
-    "clearcache": "./bin/index.js"
+    "clearcache": "./bin/clearcache.js"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SapientNitroLA/clear-require-cache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SapientNitroLA/clear-require-cache/issues"
   },
   "keywords": [
     "clear",
@@ -33,6 +43,10 @@
   "license": "MIT",
   "dependencies": {
     "chokidar": "^1.5.2",
-    "commander": "^2.9.0"
+    "commander": "^2.9.0",
+    "globby": "^6.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.4.0"
   }
 }

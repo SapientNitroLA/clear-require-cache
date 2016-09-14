@@ -1,50 +1,116 @@
 # Clear Require Cache #
 
-Version: 0.1.4
+[![NPM version](https://badge.fury.io/js/clear-require-cache.svg)](https://www.npmjs.com/package/clear-require-cache) [![Dependency Status](https://david-dm.org/sapientnitrola/clear-require-cache.svg)](https://david-dm.org/sapientnitrola/clear-require-cache)
 
-And small wrapper around <https://github.com/paulmillr/chokidar> for clearing files from `require.cache` whenever they change.
+Watch files and clear them from `require.cache` whenever changes are made.
 
 
 
 ## Installation ##
 
-```
-$ npm install --save-dev git+ssh://git@us.tools.sapient.com/cfdp/clear-require-cache.git
-```
+Install locally:
+
+    $ npm install clear-require-cache --save-dev
+
+Install globally to have `clearcache` available in your path:
+
+    $ npm install clear-require-cache -g
 
 
 
 ## Usage ##
 
-```
+### Module ###
+
+```javascript
 const clearRequireCache = require( 'clear-require-cache' );
+clearRequireCache( patterns, options );
+```
 
-if ( process.env.NODE_ENV === 'development' ) {
+### CLI ###
 
-    clearRequireCache( 'path/to/**/*.js', options );
-}
+Globally installed:
+
+```sh
+clearcache [options] <pattern> [patterns...]
+```
+
+Locally installed:
+
+```sh
+./node_modules/.bin/clearcache [options] <pattern> [patterns...]
 ```
 
 
 
-## Options ##
+## Module Arguments ##
 
 
-### `srcPath` ###
+### `patterns` ###
 
-Path to file(s) to watch.
+File [glob](https://github.com/isaacs/node-glob#glob-primer) patterns. See supported [`minimatch`](https://github.com/isaacs/minimatch#features) patterns.
 
-  - type: `String|Array`
-  - required: yes
-  - default: `undefined`
-  
+  - Type: `String`, `Array`
+  - Required: true
+
+**Example**:
+
+```javascript
+const clearRequireCache = require( 'clear-require-cache' );
+clearRequireCache( '**/*.js' );
+```
+
+**Note**: The `node_modules` directory is ignored by default.
+
 
 ### `options` ###
 
-All [`chokidar`](https://github.com/paulmillr/chokidar/blob/master/README.md#api) options should be supported (TODO: test).
+Defaults to the options supported by [`chokidar`](https://github.com/paulmillr/chokidar#api). This object is passed directly to `chokidar`, but not all options will be relavent to the scope of `clear-require-cache`.
 
-  - type: `Object`
-  - required: no
-  - default: `undefined`
+  - Type: `Object`
+  - Required: false
 
+
+#### `options.quiet` ####
+
+Suppress all log messages.
+
+   - Type: `Boolean`
+   - Default: `false`
+
+
+
+## CLI ##
+
+
+```text
+Usage: clearcache [options] <pattern> [patterns...]
+
+Multiple glob patterns can passed as a space delimited list.
+To prevent shell globbing, wrap each pattern in quotes.
+Glob primer: https://github.com/isaacs/node-glob#glob-primer
+
+Options:
+
+  -h, --help     output usage information
+  -V, --version  output the version number
+  -q, --quiet    Suppress all log messages.
+
+
+Examples:
+
+  Watch all files with '.js' extension
+  $ clearcache '**/*.js'
+
+  Watch all files with '.js' extension, except ones in the "tests" directory
+  $ clearcache '**/*.js' '!tests/*.js'
+```
+
+
+## TODO ##
+
+  - [ ] Describe some common use cases.
+  - [ ] Cross platform testing.
+  - [ ] Test suite.
+  - [ ] Travis CI
 
