@@ -1,6 +1,6 @@
 # Clear Require Cache #
 
-[![NPM version](https://badge.fury.io/js/clear-require-cache.svg)](https://www.npmjs.com/package/clear-require-cache) [![Dependency Status](https://david-dm.org/sapientnitrola/clear-require-cache.svg)](https://david-dm.org/sapientnitrola/clear-require-cache)
+[![Dependency Status](https://david-dm.org/sapientnitrola/clear-require-cache.svg)](https://david-dm.org/sapientnitrola/clear-require-cache)
 
 Watch files and clear them from `require.cache` whenever changes are made.
 
