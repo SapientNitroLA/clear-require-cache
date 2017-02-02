@@ -10,11 +10,11 @@ Watch files and clear them from `require.cache` whenever changes are made.
 
 Install locally:
 
-    $ npm install clear-require-cache --save-dev
+    $ npm install sapientnitrola/clear-require-cache --save-dev
 
 Install globally to have `clearcache` available in your path:
 
-    $ npm install clear-require-cache -g
+    $ npm install sapientnitrola/clear-require-cache -g
 
 
 
